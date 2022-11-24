@@ -8,7 +8,7 @@ function Items(){
     const items = useSelector(selectItems)
 
     return <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {items.map( item => <Grid item xs={3}><Item key={item.name} item={item}></Item></Grid>)}
+        {items.map( item => <Grid key={item.name} item xs={3}><Item item={item}></Item></Grid>)}
     </Grid>
 
 }
