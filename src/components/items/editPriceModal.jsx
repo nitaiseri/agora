@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux'
 import BasicModal from '../BasicModal'
 import { editItemPrice } from '../../app/inventorySlice'
+import { TextField } from '@mui/material';
 
 function EditPriceModal(props) {
     const [inputText, setInput] = useState("");
@@ -26,8 +27,8 @@ function EditPriceModal(props) {
                 <Typography id="modal-modal-title" variant="h6" component="h2">
                     Insert new price:
                 </Typography>
-                <input type="number" placeholder='$' value={inputText} onChange={inputHandler} />
-                <button onClick={updatePriceHandler}>Update</button>
+                <TextField type="number" placeholder='$' value={inputText} onChange={inputHandler} />
+                <Button onClick={updatePriceHandler}>Update</Button>
             </BasicModal>
         </div>
     );
