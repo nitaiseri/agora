@@ -5,7 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { buyItem } from '../../app/inventorySlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
+import {selectIsManager} from '../../app/authSlice'
 import EditPriceModal from './editPriceModal'
 
 
@@ -16,6 +17,8 @@ function Item({ item }) {
   const handleClose = () => setOpen(false);
 
   const dispach = useDispatch()
+  const isManager = useSelector(selectIsManager);
+
 
   const buyItemHandler = () => {
     dispach(buyItem(item.name))
@@ -45,9 +48,9 @@ function Item({ item }) {
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary" onClick={buyItemHandler}>
-            Buy
+            {isManager ? "Sell": "Buy"}
           </Button>
-          <Button onClick={handleOpen}>Update Price</Button>
+          {isManager && <Button onClick={handleOpen}>Update Price</Button>}
         </CardActions>
       </Card>
       <EditPriceModal open={open} handleClose={handleClose} itemName={item.name}/>

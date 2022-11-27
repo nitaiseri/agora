@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://s3.envato.com/files/273007753/pasta13_b293.jpg");
+background-repeat: no-repeat;
+background-size: cover;
 }
 
 code {
